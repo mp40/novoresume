@@ -4,7 +4,8 @@
   "description": "## Table Of Contents: - Assets - Description Of Assignment",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "node ./runServer.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,16 @@
   "homepage": "https://github.com/novoresumeberserkers/novoresume_challenge#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.7",
     "nodemon": "^2.0.4",
     "wkhtmltopdf": "^0.3.4"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "supertest": "^5.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
