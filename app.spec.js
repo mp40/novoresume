@@ -100,10 +100,53 @@ describe("The Server", () => {
       const userId = "1a";
 
       const res = await req.delete(`/users/${userId}`).send();
+
       expect(stubDelete).toHaveBeenCalledWith(userId);
       expect(res.status).toBe(200);
 
       stubDelete.mockRestore();
+    });
+  });
+
+  describe("Signing Up", () => {
+    const newUser = {
+      firstName: "John",
+      lastName: "Test",
+      email: "testSan@gmail.com",
+      password: "123456",
+    };
+
+    beforeEach(() => {
+      req = request(app);
+
+      stubPost = jest.spyOn(db, "addUser").mockImplementation(() => {
+        return Promise.resolve(newUser);
+      });
+    });
+
+    afterEach(() => {
+      stubPost.mockRestore();
+    });
+
+    it("should add valid users", async () => {
+      const res = await req.post("/signup").send(newUser);
+
+      expect(stubPost).toHaveBeenCalled();
+      expect(JSON.parse(res.text)).toEqual(newUser);
+    });
+
+    it("should throw error if user firstName not valid", async () => {
+      const user = {
+        firstName: " ",
+        lastName: "Test",
+        email: "testSan@gmail.com",
+        password: "123456",
+      };
+
+      const res = await req.post("/signup").send(user);
+
+      expect(res.body.message).toBe("Invalid User Details");
+      expect(stubPost).not.toHaveBeenCalled();
     });
   });
 });

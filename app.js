@@ -1,3 +1,5 @@
+const { validSignUpDetails } = require("./helpers");
+
 const express = require("express");
 
 const app = express();
@@ -44,6 +46,24 @@ app.put("/users/:id", (req, res) => {
 app.delete("/users/:id", (req, res) => {
   db.deleteUser(req.params.id).then(() => {
     res.send();
+  });
+});
+
+app.post("/signup", (req, res, next) => {
+  if (validSignUpDetails(req.body)) {
+    db.addUser(req.body).then((user) => {
+      res.send(user);
+    });
+  } else {
+    next(new Error("Invalid User Details"));
+  }
+});
+
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.json({
+    message: err.message,
+    error: req.app.get("env") === "development" ? err : {},
   });
 });
 
