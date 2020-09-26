@@ -6,16 +6,16 @@ mongoose.connect("mongodb://localhost:27017/nonoresume", {
 
 const User = require("./models/userModel");
 
-const getUsers = function () {
+const getUsers = () => {
   return User.find();
 };
 
-const addUser = function (user) {
+const addUser = (user) => {
   const newUser = new User(user);
   return newUser.save();
 };
 
-const updateUser = function (id, updatedUser) {
+const updateUser = (id, updatedUser) => {
   return User.findByIdAndUpdate(id, updatedUser, { new: true });
 };
 
