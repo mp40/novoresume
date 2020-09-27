@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import logo from "../../assets/icons/logo.png";
 
@@ -30,6 +31,11 @@ const Header = ({ handleSetRegisterModal, handleSetSigninModal }) => {
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  handleSetRegisterModal: PropTypes.func.isRequired,
+  handleSetSigninModal: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 import Header from "./components/header";
+import Modal from "./components/modal";
+import Register from "./components/register";
 
 import "./App.css";
 
@@ -22,6 +24,8 @@ const App = () => {
         handleSetRegisterModal={handleSetRegisterModal}
         handleSetSigninModal={handleSetSigninModal}
       />
+      {/* <Modal /> */}
+      <Register />
     </div>
   );
 };
