@@ -3,22 +3,12 @@ import PropTypes from "prop-types";
 
 import "./styles.css";
 
-const Register = ({ handleRegister, handleSetSigninModal }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+const Signin = ({ handleSignin, handleSetRegisterModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (firstName.trim().length === 0) {
-      return;
-    }
-
-    if (lastName.trim().length === 0) {
-      return;
-    }
 
     if (email.trim().length === 0 || !email.includes("@")) {
       return;
@@ -28,9 +18,7 @@ const Register = ({ handleRegister, handleSetSigninModal }) => {
       return;
     }
 
-    handleRegister({
-      firstName: firstName,
-      lastName: lastName,
+    handleSignin({
       email: email,
       password: password,
     });
@@ -47,10 +35,8 @@ const Register = ({ handleRegister, handleSetSigninModal }) => {
 
   return (
     <div className='card'>
-      <div>Register</div>
+      <div>Sign In</div>
       <form className='form' onSubmit={(event) => handleSubmit(event)}>
-        {renderLabel("First Name", firstName, setFirstName)}
-        {renderLabel("Last Name", lastName, setLastName)}
         {renderLabel("Email", email, setEmail)}
         {renderLabel("Password", password, setPassword)}
         <input type='submit' value='Register' />
@@ -58,18 +44,18 @@ const Register = ({ handleRegister, handleSetSigninModal }) => {
       <button
         type='button'
         onClick={() => {
-          handleSetSigninModal();
+          handleSetRegisterModal();
         }}
       >
-        Already have an account? Sign in
+        Don't have an account? Register Now
       </button>
     </div>
   );
 };
 
-Register.propTypes = {
-  handleRegister: PropTypes.func.isRequired,
-  handleSetSigninModal: PropTypes.func.isRequired,
+Signin.propTypes = {
+  handleSignin: PropTypes.func.isRequired,
+  handleSetRegisterModal: PropTypes.func.isRequired,
 };
 
-export default Register;
+export default Signin;
