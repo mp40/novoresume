@@ -123,18 +123,6 @@ describe("The Server", () => {
       stubPost.mockRestore();
     });
 
-    it("should add valid users", async () => {
-      const user = {
-        firstName: "John",
-        lastName: "Test",
-        email: "testSan@gmail.com",
-        password: "123456",
-      };
-
-      const res = await req.post("/signup").send(user);
-      expect(stubPost).toHaveBeenCalled();
-    });
-
     it("should throw error if user firstName not valid", async () => {
       const user = {
         firstName: " ",
