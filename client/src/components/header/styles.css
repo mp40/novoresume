@@ -34,18 +34,25 @@
   border-radius: 5px;
 }
 
-.buttons > button:hover {
-  filter: brightness(80%);
-}
-
 .register {
   background-color: #00c8aa;
   color: #fff;
   margin-right: 1.5em;
 }
 
+.register:hover {
+  border: 1.5px solid #00c8aa;
+  background-color: #ffffff;
+  color: #00c8aa;
+}
+
 .signin {
   background-color: #e1e1e1;
+}
+
+.signin:hover {
+  border: 1.5px solid #e1e1e1;
+  background-color: #ffffff;
 }
 
 @media screen and (max-width: 48em) {
