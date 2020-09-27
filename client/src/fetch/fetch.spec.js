@@ -74,7 +74,7 @@ describe("Calling the Server", () => {
     });
   });
 
-  it("should return error message on post /signin failure", async () => {
+  it("should return error message on post /signfailure", async () => {
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.reject();
     });
