@@ -228,4 +228,95 @@ describe("The Server", () => {
       stubHash.mockRestore();
     });
   });
+
+  describe("Signing in", () => {
+    beforeEach(() => {
+      req = request(app);
+    });
+
+    it("should should return error if user email not in database", async () => {
+      const user = {
+        email: "testSan@gmail.com",
+        password: "password",
+      };
+
+      const stubGetEmail = jest
+        .spyOn(db, "getUserByEmail")
+        .mockImplementation(() => {
+          return Promise.resolve(undefined);
+        });
+
+      res = await req.post("/signin").send(user);
+
+      expect(stubGetEmail).toHaveBeenCalledWith(user.email);
+      expect(res.body.message).toBe("Invalid Sign In");
+
+      stubGetEmail.mockRestore();
+    });
+
+    it("should should return error if password incorrect", async () => {
+      const userSignIn = {
+        email: "testSan@gmail.com",
+        password: "password",
+      };
+
+      const userInDatabase = {
+        email: "testSan@gmail.com",
+        password: "hashed_password",
+      };
+
+      const stubGetEmail = jest
+        .spyOn(db, "getUserByEmail")
+        .mockImplementation(() => {
+          return Promise.resolve(userInDatabase);
+        });
+
+      const stubComparePassword = jest
+        .spyOn(bcrypt, "compare")
+        .mockImplementation(() => {
+          return Promise.resolve(false);
+        });
+
+      res = await req.post("/signin").send(userSignIn);
+
+      expect(stubComparePassword).toHaveBeenCalledWith(
+        userSignIn.password,
+        userInDatabase.password
+      );
+
+      expect(res.body.message).toBe("Invalid Sign In");
+
+      stubComparePassword.mockRestore();
+    });
+
+    it("should should return signed in message if details correct", async () => {
+      const userSignIn = {
+        email: "testSan@gmail.com",
+        password: "password",
+      };
+
+      const userInDatabase = {
+        email: "testSan@gmail.com",
+        password: "hashed_password",
+      };
+
+      const stubGetEmail = jest
+        .spyOn(db, "getUserByEmail")
+        .mockImplementation(() => {
+          return Promise.resolve(userInDatabase);
+        });
+
+      const stubComparePassword = jest
+        .spyOn(bcrypt, "compare")
+        .mockImplementation(() => {
+          return Promise.resolve(true);
+        });
+
+      res = await req.post("/signin").send(userSignIn);
+
+      expect(res.body.message).toBe("Signed In");
+
+      stubComparePassword.mockRestore();
+    });
+  });
 });

@@ -74,6 +74,24 @@ app.post("/signup", (req, res, next) => {
   }
 });
 
+app.post("/signin", (req, res, next) => {
+  db.getUserByEmail(req.body.email).then((user) => {
+    if (user) {
+      bcrypt.compare(req.body.password, user.password).then((result) => {
+        if (result) {
+          res.json({
+            message: "Signed In",
+          });
+        } else {
+          next(new Error("Invalid Sign In"));
+        }
+      });
+    } else {
+      next(new Error("Invalid Sign In"));
+    }
+  });
+});
+
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.json({
