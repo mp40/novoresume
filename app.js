@@ -7,6 +7,8 @@ app.use(express.json());
 
 const db = require("./db");
 
+const bcrypt = require("bcrypt");
+
 const setupExpressServer = () => {
   return app;
 };
@@ -51,8 +53,21 @@ app.delete("/users/:id", (req, res) => {
 
 app.post("/signup", (req, res, next) => {
   if (validSignUpDetails(req.body)) {
-    db.addUser(req.body).then((user) => {
-      res.send(user);
+    db.getUserByEmail(req.body.email).then((user) => {
+      if (!user) {
+        bcrypt.hash(req.body.password, 10).then((hash) => {
+          db.addUser({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: hash,
+          }).then((user) => {
+            res.send(user);
+          });
+        });
+      } else {
+        next(new Error("Email In Use"));
+      }
     });
   } else {
     next(new Error("Invalid User Details"));

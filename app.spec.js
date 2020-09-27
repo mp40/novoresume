@@ -6,6 +6,8 @@ const app = setupExpressServer();
 
 const db = require("./db");
 
+const bcrypt = require("bcrypt");
+
 const { users } = require("./fixtures/users");
 
 describe("The Server", () => {
@@ -109,18 +111,11 @@ describe("The Server", () => {
   });
 
   describe("Signing Up", () => {
-    const newUser = {
-      firstName: "John",
-      lastName: "Test",
-      email: "testSan@gmail.com",
-      password: "123456",
-    };
-
     beforeEach(() => {
       req = request(app);
 
       stubPost = jest.spyOn(db, "addUser").mockImplementation(() => {
-        return Promise.resolve(newUser);
+        return Promise.resolve();
       });
     });
 
@@ -129,10 +124,15 @@ describe("The Server", () => {
     });
 
     it("should add valid users", async () => {
-      const res = await req.post("/signup").send(newUser);
+      const user = {
+        firstName: "John",
+        lastName: "Test",
+        email: "testSan@gmail.com",
+        password: "123456",
+      };
 
+      const res = await req.post("/signup").send(user);
       expect(stubPost).toHaveBeenCalled();
-      expect(JSON.parse(res.text)).toEqual(newUser);
     });
 
     it("should throw error if user firstName not valid", async () => {
@@ -147,6 +147,97 @@ describe("The Server", () => {
 
       expect(res.body.message).toBe("Invalid User Details");
       expect(stubPost).not.toHaveBeenCalled();
+    });
+
+    it("should throw error if user lastName not valid", async () => {
+      const user = {
+        firstName: "John",
+        lastName: " ",
+        email: "testSan@gmail.com",
+        password: "123456",
+      };
+
+      const res = await req.post("/signup").send(user);
+
+      expect(res.body.message).toBe("Invalid User Details");
+      expect(stubPost).not.toHaveBeenCalled();
+    });
+
+    it("should throw error if user email not valid", async () => {
+      const user = {
+        firstName: "John",
+        lastName: "Test",
+        email: " ",
+        password: "123456",
+      };
+
+      const res = await req.post("/signup").send(user);
+
+      expect(res.body.message).toBe("Invalid User Details");
+      expect(stubPost).not.toHaveBeenCalled();
+    });
+
+    it("should throw error if user password not valid", async () => {
+      const user = {
+        firstName: "John",
+        lastName: "Test",
+        email: "testSan@gmail.com",
+        password: "12345",
+      };
+
+      const res = await req.post("/signup").send(user);
+
+      expect(res.body.message).toBe("Invalid User Details");
+      expect(stubPost).not.toHaveBeenCalled();
+    });
+
+    it("should return error if password is in use", async () => {
+      const user = {
+        firstName: "John",
+        lastName: "Test",
+        email: "testSan@gmail.com",
+        password: "123456",
+      };
+
+      const stubGetEmail = jest
+        .spyOn(db, "getUserByEmail")
+        .mockImplementation(() => {
+          return Promise.resolve(user);
+        });
+
+      const res = await req.post("/signup").send(user);
+
+      expect(stubGetEmail).toHaveBeenCalledWith(user.email);
+      expect(res.body.message).toBe("Email In Use");
+      expect(stubPost).not.toHaveBeenCalled();
+
+      stubGetEmail.mockRestore();
+    });
+
+    it("should hash plain text password", async () => {
+      const user = {
+        firstName: "John",
+        lastName: "Test",
+        email: "testSan@gmail.com",
+        password: "123456",
+      };
+
+      const stubHash = jest.spyOn(bcrypt, "hash").mockImplementation(() => {
+        return Promise.resolve("hashed_password");
+      });
+
+      const res = await req.post("/signup").send(user);
+
+      expect(stubHash).toHaveBeenCalledWith("123456", 10);
+
+      expect(stubPost).toHaveBeenCalledWith({
+        firstName: "John",
+        lastName: "Test",
+        email: "testSan@gmail.com",
+        password: "hashed_password",
+      });
+
+      stubHash.mockRestore();
     });
   });
 });

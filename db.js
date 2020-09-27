@@ -10,6 +10,10 @@ const getUsers = () => {
   return User.find();
 };
 
+const getUserByEmail = (email) => {
+  return User.findOne({ email: email });
+};
+
 const addUser = (user) => {
   const newUser = new User(user);
   return newUser.save();
@@ -25,6 +29,7 @@ const deleteUser = (id) => {
 
 module.exports = {
   getUsers,
+  getUserByEmail,
   addUser,
   updateUser,
   deleteUser,
