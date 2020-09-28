@@ -11,10 +11,12 @@ const App = () => {
   const [showSigninModal, setSigninModal] = useState(false);
 
   const handleSetRegisterModal = () => {
+    setSigninModal(false);
     setRegisterModal(!showRegisterModal);
   };
 
   const handleSetSigninModal = () => {
+    setRegisterModal(false);
     setSigninModal(!showSigninModal);
   };
 
