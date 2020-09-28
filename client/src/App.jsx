@@ -10,11 +10,17 @@ const App = () => {
   const [showRegisterModal, setRegisterModal] = useState(false);
   const [showSigninModal, setSigninModal] = useState(false);
 
-  const handleSetRegisterModal = () => {};
+  const handleSetRegisterModal = () => {
+    setRegisterModal(!showRegisterModal);
+  };
 
-  const handleSetSigninModal = () => {};
+  const handleSetSigninModal = () => {
+    setSigninModal(!showSigninModal);
+  };
 
   const handleRegister = () => {};
+
+  const handleSignin = () => {};
 
   return (
     <div className='App'>
@@ -22,6 +28,18 @@ const App = () => {
         handleSetRegisterModal={handleSetRegisterModal}
         handleSetSigninModal={handleSetSigninModal}
       />
+      {showRegisterModal && (
+        <Register
+          handleRegister={handleRegister}
+          handleSetSigninModal={handleSetSigninModal}
+        />
+      )}
+      {showSigninModal && (
+        <Signin
+          handleSignin={handleSignin}
+          handleSetRegisterModal={handleSetRegisterModal}
+        />
+      )}
     </div>
   );
 };

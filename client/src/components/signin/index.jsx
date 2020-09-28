@@ -34,22 +34,25 @@ const Signin = ({ handleSignin, handleSetRegisterModal }) => {
   };
 
   return (
-    <div className='card'>
-      <div>Sign In</div>
-      <form className='form' onSubmit={(event) => handleSubmit(event)}>
-        {renderLabel("Email", email, setEmail)}
-        {renderLabel("Password", password, setPassword)}
-        <input type='submit' value='Register' />
-      </form>
-      <button
-        type='button'
-        onClick={() => {
-          handleSetRegisterModal();
-        }}
-      >
-        Don't have an account? Register Now
-      </button>
-    </div>
+    <>
+      <div className='modal' />
+      <div className='card'>
+        <div>Sign In</div>
+        <form className='form' onSubmit={(event) => handleSubmit(event)}>
+          {renderLabel("Email", email, setEmail)}
+          {renderLabel("Password", password, setPassword)}
+          <input type='submit' value='Register' />
+        </form>
+        <button
+          type='button'
+          onClick={() => {
+            handleSetRegisterModal();
+          }}
+        >
+          Don't have an account? Register Now
+        </button>
+      </div>
+    </>
   );
 };
 
