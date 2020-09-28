@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import "./styles.css";
-
 const Signin = ({ handleSignin, handleSetRegisterModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

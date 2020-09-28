@@ -1,13 +1,105 @@
+:root {
+  --green: #00c8aa;
+  --purple: #6a6ac4;
+  --grey-light: #f5f5f5;
+  --grey: #e1e1e1;
+  --grey-dark: #9b9b9b;
+  --salmon: #f27575;
+  --blue-slate-dark: #313b47;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  opacity: 50%;
+  z-index: 100;
+}
+
+.card {
+  position: fixed;
+  top: 8em;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 10px;
+  width: 18em;
+  padding: 2em;
+  margin-top: 2em;
+  margin-left: 2em;
+  z-index: 101;
+}
+
+.card > div {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form > label {
+  font-weight: 500;
+}
+
+.form > input:not(:last-of-type) {
+  margin: 0.5em 0 1em;
+  color: var(--grey-dark);
+  background-color: var(--grey-light);
+  height: 2em;
+  border-radius: 3px;
+  border: none;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.form > input:last-of-type {
+  margin: 1.5em auto 0;
+  display: block;
+  border: none;
+  background-color: var(--green);
+  color: #fff;
+  width: 100%;
+  height: 2.5em;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+.form > input:last-of-type:hover {
+  border: 1.5px solid var(--green);
+  background-color: #fff;
+  color: var(--green);
+}
+
+.card > button {
+  margin: 0.5em auto 0;
+  display: block;
+  border: none;
+  color: var(--green);
+  background-color: #fff;
+  width: 100%;
+  height: 2.5em;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.card > button:hover {
+  border: 1px solid var(--green);
 }

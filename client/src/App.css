@@ -1,4 +1,4 @@
 .App {
-  background-color: #6a6ac4;
+  background-color: var(--purple);
   height: 100vh;
 }

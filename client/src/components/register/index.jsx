@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import "./styles.css";
-
 const Register = ({ handleRegister, handleSetSigninModal }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
