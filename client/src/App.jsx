@@ -4,12 +4,14 @@ import Header from "./components/header";
 import Register from "./components/register";
 import Signin from "./components/signin";
 import Home from "./components/home";
+import Store from "./components/store";
 
 import "./App.css";
 
 const App = () => {
   const [showRegisterModal, setRegisterModal] = useState(false);
   const [showSigninModal, setSigninModal] = useState(false);
+  const [signedIn, setSignedIn] = useState(false);
 
   const handleSetRegisterModal = () => {
     setSigninModal(false);
@@ -31,7 +33,8 @@ const App = () => {
         handleSetRegisterModal={handleSetRegisterModal}
         handleSetSigninModal={handleSetSigninModal}
       />
-      <Home handleSetRegisterModal={handleSetRegisterModal} />
+      {!signedIn && <Home handleSetRegisterModal={handleSetRegisterModal} />}
+      {signedIn && <Store />}
       {showRegisterModal && (
         <Register
           handleRegister={handleRegister}
