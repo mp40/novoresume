@@ -9,7 +9,7 @@ import "./styles.css";
 
 const Home = ({ handleSetRegisterModal }) => {
   return (
-    <div>
+    <div className='homeWrapper'>
       <HomeRegisterBanner handleSetRegisterModal={handleSetRegisterModal} />
       <HomeCallToActionBanner handleSetRegisterModal={handleSetRegisterModal} />
       <HomeBlogBanner />
