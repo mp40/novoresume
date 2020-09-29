@@ -1,0 +1,20 @@
+.pseudoLogo {
+  letter-spacing: -0.22em;
+  font-weight: 900;
+}
+
+.pseudoLogo > span:first-of-type {
+  color: var(--purple);
+}
+
+.pseudoLogo > span:first-of-type:after {
+  content: "C";
+}
+
+.pseudoLogo > span:last-of-type {
+  color: var(--green);
+}
+
+.pseudoLogo > span:last-of-type:after {
+  content: "O-------------";
+}

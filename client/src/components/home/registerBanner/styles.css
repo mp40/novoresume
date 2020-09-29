@@ -30,21 +30,6 @@
   margin: 2em 0 0;
 }
 
-.homeRegisterBanner > .text > button {
-  background-color: var(--green);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
-  height: 3em;
-  width: 15em;
-}
-
-.homeRegisterBanner > .text > button:hover {
-  background-color: var(--purple);
-  border: 2px solid var(--green);
-}
-
 .homeRegisterBanner > .image {
   text-align: right;
 }

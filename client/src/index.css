@@ -13,6 +13,27 @@ body {
   font-family: "Cabin", sans-serif;
 }
 
+.standardButtonPrimary,
+.standardButtonSecondary {
+  background-color: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  height: 3em;
+  width: 15em;
+}
+
+.standardButtonPrimary:hover,
+.standardButtonSecondary:hover {
+  background-color: transparent;
+  border: 2px solid var(--green);
+}
+
+.standardButtonSecondary:hover {
+  color: var(--blue-slate-dark);
+}
+
 .modal {
   position: fixed;
   height: 100%;

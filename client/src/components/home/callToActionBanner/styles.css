@@ -1,0 +1,54 @@
+.homeCallToActionBanner {
+  background-color: var(--grey-light);
+  height: 27em;
+  padding: 2em 10em 2em;
+  color: var(--blue-slate-dark);
+  position: relative;
+}
+
+.homeCallToActionBanner > .heading {
+  display: flex;
+  align-items: center;
+}
+
+.homeCallToActionBanner > .heading > h2 {
+  margin-left: 0.5em;
+}
+
+.homeCallToActionBanner > .body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.homeCallToActionBanner > .body > .services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em 2em 0;
+  text-align: center;
+}
+
+.homeCallToActionBanner * .services > .image {
+  height: 4em;
+}
+
+.homeCallToActionBanner * .services > .image > img {
+  max-height: 100%;
+}
+
+.homeCallToActionBanner * .services > .text > h3 {
+  margin: 1.5em 0 0.5em;
+}
+
+.homeCallToActionBanner * .services > .text > p {
+  margin: 0;
+  padding: 0 3em;
+  line-height: 1.35em;
+}
+
+.homeCallToActionBanner > .standardButtonSecondary {
+  position: absolute;
+  left: 50%;
+  bottom: 3em;
+  transform: translateX(-50%);
+}

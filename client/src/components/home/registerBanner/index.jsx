@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import header from "../../../assets/background/header.png";
 
-import text from "./text";
+import text from "./data";
 
 import "./styles.css";
 
@@ -15,7 +15,11 @@ const HomeRegisterBanner = ({ handleSetRegisterModal }) => {
           <h1>{text.heading}</h1>
           <p>{text.body}</p>
         </div>
-        <button type='button' onClick={() => handleSetRegisterModal()}>
+        <button
+          className='standardButtonPrimary'
+          type='button'
+          onClick={() => handleSetRegisterModal()}
+        >
           {text.button}
         </button>
       </div>

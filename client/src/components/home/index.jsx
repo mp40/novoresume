@@ -11,7 +11,7 @@ const Home = ({ handleSetRegisterModal }) => {
   return (
     <div>
       <HomeRegisterBanner handleSetRegisterModal={handleSetRegisterModal} />
-      <HomeCallToActionBanner />
+      <HomeCallToActionBanner handleSetRegisterModal={handleSetRegisterModal} />
       <HomeBlogBanner />
     </div>
   );
