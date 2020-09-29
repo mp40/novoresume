@@ -1,8 +1,15 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/nonoresume", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
+mongoose
+  .connect("mongodb://localhost:27017/novoresume", {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const User = require("./models/userModel");
 

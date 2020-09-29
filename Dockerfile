@@ -14,4 +14,4 @@ COPY . .
 
 EXPOSE 9007
 
-CMD ["node", "app.js"]
+CMD ["node", "runServer.js"]
