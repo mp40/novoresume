@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "./components/header";
 import Register from "./components/register";
 import Signin from "./components/signin";
+import Home from "./components/home";
 
 import "./App.css";
 
@@ -30,6 +31,7 @@ const App = () => {
         handleSetRegisterModal={handleSetRegisterModal}
         handleSetSigninModal={handleSetSigninModal}
       />
+      <Home handleSetRegisterModal={handleSetRegisterModal} />
       {showRegisterModal && (
         <Register
           handleRegister={handleRegister}

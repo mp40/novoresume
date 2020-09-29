@@ -1,0 +1,54 @@
+.homeRegisterBanner {
+  color: #fff;
+  background-color: var(--purple);
+  white-space: pre-line;
+  height: 20em;
+  padding: 10em 10em 5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeRegisterBanner > div {
+  width: 50%;
+}
+
+.homeRegisterBanner > .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.homeRegisterBanner > .text > div > h1 {
+  font-size: 2.25em;
+  font-weight: 700;
+}
+
+.homeRegisterBanner > .text > div > p {
+  font-size: 1.25em;
+  font-weight: 500;
+  line-height: 1.25em;
+  margin: 2em 0 0;
+}
+
+.homeRegisterBanner > .text > button {
+  background-color: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  height: 3em;
+  width: 15em;
+}
+
+.homeRegisterBanner > .text > button:hover {
+  background-color: var(--purple);
+  border: 2px solid var(--green);
+}
+
+.homeRegisterBanner > .image {
+  text-align: right;
+}
+
+.homeRegisterBanner > .image > img {
+  max-height: 100%;
+}
