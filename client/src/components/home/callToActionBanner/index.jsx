@@ -24,9 +24,7 @@ const HomeCallToActionBanner = ({ handleSetRegisterModal }) => {
         {services.map((service) => {
           return (
             <div className='services' key={service.icon}>
-              <div className='image'>
-                <img src={icons[service.icon]} alt={service.icon} />
-              </div>
+              <img src={icons[service.icon]} alt={service.icon} />
               <div className='text'>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>

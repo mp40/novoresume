@@ -28,12 +28,9 @@
   text-align: center;
 }
 
-.homeCallToActionBanner * .services > .image {
+.homeCallToActionBanner * .services > img {
+  object-fit: contain;
   height: 4em;
-}
-
-.homeCallToActionBanner * .services > .image > img {
-  max-height: 100%;
 }
 
 .homeCallToActionBanner * .services > .text > h3 {

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import text from "./data";
+
 const Register = ({ handleRegister, handleSetSigninModal }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -47,7 +49,7 @@ const Register = ({ handleRegister, handleSetSigninModal }) => {
     <>
       <div className='modal' />
       <div className='card'>
-        <div>Register</div>
+        <div>{text.heading}</div>
         <form className='form' onSubmit={(event) => handleSubmit(event)}>
           {renderLabel("First Name", firstName, setFirstName)}
           {renderLabel("Last Name", lastName, setLastName)}
@@ -61,7 +63,7 @@ const Register = ({ handleRegister, handleSetSigninModal }) => {
             handleSetSigninModal();
           }}
         >
-          Already have an account? Sign in
+          {text.button}
         </button>
       </div>
     </>

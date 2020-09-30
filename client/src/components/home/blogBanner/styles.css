@@ -28,7 +28,7 @@
   width: calc(33% - 1em);
 }
 
-.homeBlogBanner * .blogs > .image > img {
+.homeBlogBanner * .blogs > img {
   object-fit: cover;
   width: 100%;
   height: 15em;

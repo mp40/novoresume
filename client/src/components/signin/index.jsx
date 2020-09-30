@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import text from "./data";
+
 const Signin = ({ handleSignin, handleSetRegisterModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,11 +37,11 @@ const Signin = ({ handleSignin, handleSetRegisterModal }) => {
     <>
       <div className='modal' />
       <div className='card'>
-        <div>Sign In</div>
+        <div>{text.heading}</div>
         <form className='form' onSubmit={(event) => handleSubmit(event)}>
           {renderLabel("Email", email, setEmail)}
           {renderLabel("Password", password, setPassword)}
-          <input type='submit' value='Register' />
+          <input type='submit' value='Sign In' />
         </form>
         <button
           type='button'
@@ -47,7 +49,7 @@ const Signin = ({ handleSignin, handleSetRegisterModal }) => {
             handleSetRegisterModal();
           }}
         >
-          Don't have an account? Register Now
+          {text.button}
         </button>
       </div>
     </>

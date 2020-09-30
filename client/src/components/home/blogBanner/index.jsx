@@ -23,9 +23,7 @@ const HomeBlogBanner = () => {
         {blogs.map((blog) => {
           return (
             <div className='blogs' key={blog.icon}>
-              <div className='image'>
-                <img src={icons[blog.icon]} alt={blog.icon} />
-              </div>
+              <img src={icons[blog.icon]} alt={blog.icon} />
               <div className='text'>
                 <h3>{blog.title}</h3>
                 <p>{blog.text}</p>
