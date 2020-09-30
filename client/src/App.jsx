@@ -6,6 +6,8 @@ import Signin from "./components/signin";
 import Home from "./components/home";
 import Store from "./components/store";
 
+import { fetchSignup, fetchSignin } from "./fetch";
+
 import "./App.css";
 
 const App = () => {
@@ -23,9 +25,26 @@ const App = () => {
     setSigninModal(!showSigninModal);
   };
 
-  const handleRegister = () => {};
+  const handleRegister = async (user) => {
+    const res = await fetchSignup(user);
 
-  const handleSignin = () => {};
+    if (res.error) {
+      return;
+    }
+
+    setRegisterModal(false);
+  };
+
+  const handleSignin = async (user) => {
+    const res = await fetchSignin(user);
+
+    if (res.error) {
+      return;
+    }
+
+    setSigninModal(false);
+    setSignedIn(true);
+  };
 
   return (
     <div className='App'>
