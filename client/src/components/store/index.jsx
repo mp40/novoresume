@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import StoreProducts from "./products";
+import StoreBilling from "./billing";
 
 import text from "./data";
 
@@ -18,14 +19,31 @@ const Store = () => {
     item8: 0,
   });
 
+  const [billingDetails, setBillingDetails] = useState({
+    firstName: "",
+    lastName: "",
+    address: "",
+    postalCode: "",
+    telephone: "",
+    email: "",
+  });
+
   const handleAddItem = (item) => {
     const update = { [item]: order[item] + 1 };
+
     setOrder({ ...order, ...update });
   };
 
   const handleRemoveItem = (item) => {
     const update = { [item]: order[item] - 1 };
+
     setOrder({ ...order, ...update });
+  };
+
+  const handleUpdateBillingDetails = (item, value) => {
+    const update = { [item]: value };
+
+    setOrder({ ...billingDetails, ...update });
   };
 
   return (
@@ -35,6 +53,10 @@ const Store = () => {
         handleAddItem={handleAddItem}
         handleRemoveItem={handleRemoveItem}
         order={order}
+      />
+      <StoreBilling
+        billingDetails={billingDetails}
+        handleUpdateBillingDetails={handleUpdateBillingDetails}
       />
     </div>
   );

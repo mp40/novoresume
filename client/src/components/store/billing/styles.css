@@ -1,0 +1,32 @@
+.storeBilling > .billingForm {
+  margin: 2em 0;
+  padding: 0 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.storeBilling > .billingForm > div {
+  display: flex;
+  flex-direction: column;
+  width: calc(33.33% - 4em);
+  margin-bottom: 2em;
+  font-size: 1.2em;
+}
+
+.storeBilling > .billingForm > div > label {
+  margin-bottom: 0.5em;
+  font-weight: 300;
+}
+
+.storeBilling > .billingForm > div > label::after {
+  content: " *";
+  color: #ff0000;
+}
+
+.storeBilling > .billingForm > div > input {
+  border: none;
+  background-color: var(--grey-light);
+  line-height: 2.5em;
+  border-radius: 5px;
+}
