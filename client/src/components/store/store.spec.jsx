@@ -48,4 +48,26 @@ describe("Store", () => {
       expect(product.find("span").text()).toBe("0");
     });
   });
+
+  describe("store billing details", () => {
+    const wrapper = shallow(<Store />);
+
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it("should update billing details", () => {
+      let firstNameInput = wrapper
+        .find("StoreBilling")
+        .dive()
+        .find("input")
+        .at(0);
+
+      firstNameInput.simulate("change", { target: { value: "Ozzy" } });
+
+      firstNameInput = wrapper.find("StoreBilling").dive().find("input").at(0);
+
+      expect(firstNameInput.html()).toBe('<input type="text" value="Ozzy"/>');
+    });
+  });
 });

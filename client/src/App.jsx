@@ -58,10 +58,8 @@ const App = () => {
         handleSignOut={handleSignOut}
         signedIn={signedIn}
       />
-      {/* {!signedIn && <Home handleSetRegisterModal={handleSetRegisterModal} />}
-      {signedIn && <Store />} */}
-      <Store />
-      {/* <Home handleSetRegisterModal={handleSetRegisterModal} /> */}
+      {!signedIn && <Home handleSetRegisterModal={handleSetRegisterModal} />}
+      {signedIn && <Store />}
       {showRegisterModal && (
         <Register
           handleRegister={handleRegister}

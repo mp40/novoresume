@@ -21,7 +21,7 @@ const StoreBilling = ({ billingDetails, handleUpdateBillingDetails }) => {
             <label>{heading.text}</label>
             <input
               type='text'
-              defaultValue={billingDetails[heading.key]}
+              value={billingDetails[heading.key]}
               onChange={(event) => updateField(heading.key, event.target.value)}
             />
           </div>

@@ -1,0 +1,13 @@
+.storeOffer {
+  position: relative;
+  margin-bottom: 5em;
+}
+
+.storeOffer > .standardButtonPrimary {
+  position: absolute;
+  top: 50%;
+  right: 1.75em;
+  transform: translateY(-50%);
+  width: 12em;
+  height: 2.5em;
+}

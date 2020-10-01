@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import StoreProducts from "./products";
 import StoreBilling from "./billing";
+import StoreOffer from "./offer";
 
 import text from "./data";
 
@@ -43,7 +44,7 @@ const Store = () => {
   const handleUpdateBillingDetails = (item, value) => {
     const update = { [item]: value };
 
-    setOrder({ ...billingDetails, ...update });
+    setBillingDetails({ ...billingDetails, ...update });
   };
 
   return (
@@ -58,6 +59,7 @@ const Store = () => {
         billingDetails={billingDetails}
         handleUpdateBillingDetails={handleUpdateBillingDetails}
       />
+      <StoreOffer />
     </div>
   );
 };
