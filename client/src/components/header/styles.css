@@ -57,6 +57,14 @@
   background-color: #fff;
 }
 
+.signout {
+  background-color: #fff;
+}
+
+.signout:hover {
+  border: 1.5px solid var(--blue-slate-dark);
+}
+
 @media screen and (max-width: 48em) {
   .header > div {
     width: calc(100vw - 3.75em);

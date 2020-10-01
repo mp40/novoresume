@@ -1,0 +1,74 @@
+.storeProducts > .productWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2.5em;
+}
+
+.storeProducts * .storeProduct {
+  width: calc(25% - 36px);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3em;
+}
+
+.storeProducts * .storeProduct > .view {
+  display: flex;
+}
+
+.storeProducts * .storeProduct > .view > img {
+  object-fit: contain;
+  height: 11em;
+  border-radius: 8px;
+}
+
+.storeProducts * .storeProduct > .view > div {
+  margin-left: 1.5em;
+}
+
+.storeProducts * .storeProduct > .view > div > p {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.storeProducts * .storeProduct > .view > div > button {
+  font-size: 1.4em;
+  height: 1.4em;
+  width: 1.4em;
+  background-color: var(--grey);
+  border: none;
+  border-radius: 5px;
+}
+
+.storeProducts * .storeProduct > .view > div > button:hover {
+  background-color: transparent;
+  border: 1.5px solid var(--grey);
+}
+
+.storeProducts * .storeProduct > .view > div > button:active {
+  background-color: var(--grey-light);
+}
+
+.storeProducts * .storeProduct > .view > div > span {
+  font-size: 1.5em;
+  padding: 0 0.5em;
+}
+
+.storeProducts * .storeProduct > .text > h3 {
+  font-size: 1.5em;
+  margin: 0.75em 0 0.25em;
+}
+
+.storeProducts * .storeProduct > .text > h4 {
+  color: var(--purple);
+  font-weight: 400;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.storeProducts * .storeProduct > .text > p {
+  font-size: 0.9em;
+  font-weight: 300;
+  line-height: 1.25em;
+  margin: 0.5em 0 0;
+}

@@ -46,11 +46,17 @@ const App = () => {
     setSignedIn(true);
   };
 
+  const handleSignOut = () => {
+    setSignedIn(false);
+  };
+
   return (
     <div className='App'>
       <Header
         handleSetRegisterModal={handleSetRegisterModal}
         handleSetSigninModal={handleSetSigninModal}
+        handleSignOut={handleSignOut}
+        signedIn={signedIn}
       />
       {!signedIn && <Home handleSetRegisterModal={handleSetRegisterModal} />}
       {signedIn && <Store />}
