@@ -31,7 +31,7 @@ cd client && yarn test
 
 #### Status
 There are a number of items stated in the requirements below that need to be implemented to reach MVP.
-Additionally I feel the frontend needs a refactor in addition to improving user feedback on forms.
+Additionally I feel the frontend needs a refactor in addition to various CSS tweaks and improving user feedback on forms and modals.
 Scoped css if the form of something like CSS Modules would also be a good addition.
 The test suite will assist in the refactor.
 Also the sign in process needs to be more secure.
