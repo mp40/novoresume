@@ -8,8 +8,6 @@ import Store from "./components/store";
 
 import { fetchSignup, fetchSignin } from "./fetch";
 
-import "./App.css";
-
 const App = () => {
   const [showRegisterModal, setRegisterModal] = useState(false);
   const [showSigninModal, setSigninModal] = useState(false);

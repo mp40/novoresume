@@ -4,11 +4,11 @@ export const text = {
   subHeading2: "Personal Items",
   subHeading3: "Personal Items",
   body1:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit pellentesque habitant. Fermentum et sollicitudin ac orci phasellus egestas tellus. Elementum sagittis vitae et leo duis ut. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Vulputate mi sit amet mauris commodo. Massa massa ultricies mi quis hendrerit dolor.",
+    "You are probably familiar with free merchandise offered by companies at no cost at all. This is because they know lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   body2:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit pellentesque habitant. Fermentum et sollicitudin ac orci phasellus egestas tellus. Elementum sagittis vitae et leo duis ut. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Vulputate mi sit amet mauris commodo. Massa massa ultricies mi quis hendrerit dolor.",
+    "You are probably familiar with free merchandise offered by companies at no cost at all. This is because they know lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   body3:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit pellentesque habitant. Fermentum et sollicitudin ac orci phasellus egestas tellus. Elementum sagittis vitae et leo duis ut. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Vulputate mi sit amet mauris commodo. Massa massa ultricies mi quis hendrerit dolor.",
+    "You are probably familiar with free merchandise offered by companies at no cost at all. This is because they know lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   link: "Read now ...",
 };
 
