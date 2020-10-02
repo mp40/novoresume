@@ -47,6 +47,8 @@ const Store = () => {
     setBillingDetails({ ...billingDetails, ...update });
   };
 
+  const handleOffer = () => {};
+
   return (
     <div className='storeWrapper'>
       <h1>{text.heading}</h1>
@@ -59,7 +61,7 @@ const Store = () => {
         billingDetails={billingDetails}
         handleUpdateBillingDetails={handleUpdateBillingDetails}
       />
-      <StoreOffer />
+      <StoreOffer handleOrder={handleOffer} />
     </div>
   );
 };
